@@ -1,7 +1,14 @@
-<script setup></script>
+<script setup>
+import SideNavigation from './components/SideNavigation.vue';
+import TopNav from './components/TopNav.vue';
+import ConversionTables from './components/ConversionTables.vue';
+</script>
 
 <template>
-  <div class="text-lg font-bold">Hallo Folks!</div>
+  <TopNav></TopNav>
+  <ConversionTables></ConversionTables>
+  <SideNavigation></SideNavigation>
 </template>
 
-<style scoped></style>
+<style>
+</style>
