@@ -6,8 +6,8 @@ import ConversionTables from './components/ConversionTables.vue';
 
 <template>
   <TopNav></TopNav>
-  <ConversionTables></ConversionTables>
   <SideNavigation></SideNavigation>
+  <ConversionTables></ConversionTables>
 </template>
 
 <style>
