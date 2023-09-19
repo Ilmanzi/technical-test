@@ -1,6 +1,6 @@
 <script setup>
 import axios from 'axios';
-import { ref, onMounted, defineEmits } from 'vue';
+import { ref, onMounted } from 'vue';
 import DialogPopup from './DialogPopup.vue'
 
 const users = ref({});
@@ -24,10 +24,22 @@ function LongDate(tanggal) {
 
     return joinDate
 }
+
+const modalVisible = ref(false);
+const selectedUser = ref(null);
+
+const openUserDetailsModal = (user) => {
+  selectedUser.value = user;
+  modalVisible.value = true;
+};
+
+const closeModal = () => {
+  modalVisible.value = false;
+};
 </script>
 
 <template>
-    <div class="ml-[330px] pl-5 mb-10 mt-5 mr-16 bg-[#FFFFFF] rounded-xl border-2 shadow">
+    <div class="ml-[330px] pl-5 mb-10 mt-10 mr-16 bg-[#FFFFFF] rounded-xl border-2 shadow">
         <div class="flex justify-start place-content-center h-[69px] items-center font-bold">
             User List
         </div>
@@ -52,12 +64,14 @@ function LongDate(tanggal) {
                         <td>{{ user.email }}</td>
                         <td class="text-[#686868]">{{ user.job }}</td>
                         <td>{{ user.country }}</td>
-                        <td><button class="shadow-sm border-2 rounded-lg px-5 py-2">View Details</button></td>
+                        <td><button @click="openUserDetailsModal(user)" class="shadow-sm border-2 rounded-lg px-5 py-2">View Details</button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+ <!-- Render the UserDetailsModal component -->
+ <DialogPopup :showModal="modalVisible" :userDetails="selectedUser" @closeModal="closeModal" />
 </template>
 
 <style></style>

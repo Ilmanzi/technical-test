@@ -9,16 +9,24 @@ import { Icon } from '@iconify/vue';
         </div>
         <div>
             <ul class="text-left pl-[41px]">
+                <!-- Dashboard route -->
                 <li>
-                    <button class="flex py-3 hover:bg-blue-100 border-0 text-center pl-2 w-[230px]">
+                    <router-link to="/" class="flex py-3 hover:bg-blue-100 border-0 text-center pl-2 w-[230px]">
                         <Icon icon="solar:graph-down-linear" width="23" class="pr-1" />
                         Dashboard
-                    </button>
+                    </router-link>
                 </li>
-                <li><button class="flex py-3 hover:bg-blue-100 border-0 text-center pl-2 w-[230px]">
+                <!-- Overview route -->
+                <li><router-link to="/overview" class="flex py-3 hover:bg-blue-100 border-0 text-center pl-2 w-[230px]">
                         <Icon icon="solar:graph-up-outline" width="23" class="pr-1" />
                         Overview
-                    </button>
+                </router-link>
+                </li>
+                <!-- Tugas2 -->
+                <li><router-link to="/Tugas2" class="flex py-3 hover:bg-blue-100 border-0 text-center pl-2 w-[230px]">
+                        <Icon icon="ic:baseline-work" width="23" class="pr-1" />
+                        Tugas 2
+                </router-link>
                 </li>
             </ul>
         </div>
