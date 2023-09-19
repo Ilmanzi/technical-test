@@ -1,6 +1,6 @@
 <script setup>
 import axios from 'axios';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, defineEmits } from 'vue';
 import DialogPopup from './DialogPopup.vue'
 
 const users = ref({});
@@ -9,7 +9,6 @@ const fetchUsers = async () => {
     try {
         const response = await axios.get('https://api.slingacademy.com/v1/sample-data/users');
         users.value = response.data.users;
-        console.log(users)
     } catch (error) {
         console.error("Error fetcthing users:", error)
     }
@@ -21,7 +20,6 @@ onMounted(() => {
 
 function LongDate(tanggal) {
     var today = new Date(tanggal)
-    console.log(today)
     var joinDate = `${today.getDate()} / ${today.getMonth() + 1} / ${today.getFullYear()}`
 
     return joinDate
