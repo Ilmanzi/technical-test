@@ -11,7 +11,11 @@ import { Icon } from '@iconify/vue';
             <ul class="text-left pl-[41px]">
                 <!-- Dashboard route -->
                 <li>
-                    <router-link to="/" class="flex py-3 hover:bg-blue-100 border-0 text-center pl-2 w-[230px]">
+                    <router-link
+                    to="/"
+                    class="flex py-3 hover:bg-blue-100 border-0 text-center pl-2 w-[230px]"
+                    :class="{ 'router-link-active': $route.path === '/' }"
+                    >
                         <Icon icon="solar:graph-down-linear" width="23" class="pr-1" />
                         Dashboard
                     </router-link>
@@ -42,5 +46,10 @@ import { Icon } from '@iconify/vue';
 <style>
 .inter-font {
     font-family: Inter;
+}
+
+.router-link-active {
+  background-color: lightblue;
+  color: #000000;
 }
 </style>
